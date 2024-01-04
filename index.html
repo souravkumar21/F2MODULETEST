@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="Logo.png" alt="logo">
+    </header>
+
+    <div class="surch-container">
+        <form id="form">
+           
+            <input type="text" name="search" id="inputbox" placeholder="Enter Your To-do List Task" required>
+            <button type="button" onclick="addTask()">Add <i class="fa-solid fa-circle-plus"></i></button>
+            <div class="dateandpriotity">
+                <div>
+                    <label for="Due">Due date</label>
+                    <input type="date" placeholder="Due Date" id="dueDate" required>
+                </div>
+                <div>
+                    <label for="priority" id="labelperority">Priority:</label>
+                    <select id="priority" name="Priotity" required>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+            </div>
+           
+       
+
+        <!-- Filter options -->
+            <div class="filter-container">
+                <label for="filterStatus">Filter by Status:</label>
+                <select id="filterStatus" onchange="filterTasks()">
+                    <option value="all">All</option>
+                    <option value="todo">To-do</option>
+                    <option value="inprogress">In Progress</option>
+                    <option value="done">Done</option>
+                </select>
+
+                <label for="filterPriority">Filter by Priority:</label>
+                <select id="filterPriority" onchange="filterTasks()">
+                    <option value="all">All</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
+            <input type="text" name="search" id="searchInput" placeholder="Search tasks" oninput="searchTasks()">
+        </form>
+    </div>
+
+    <div class="maincontainr">
+        <div class="To-do">
+            <div class="todo"><span class="text">To Do</span><span class="count" id="listcount">0</span></div>
+            <div class="highcoynt"><span class="text-priotity">High Priority</span> <span class="count" id="highpriotity">0</span></div>
+        </div>
+        <br>
+        <hr>
+
+        <div class="list">
+            <img src="Empty.png" alt="empty" id="img">
+            <div class="todo-list" id="todolist">
+                <ul id="list-container">
+                    <!-- Tasks will be dynamically added here -->
+                </ul>
+            </div>
+            <div class="To-do">
+                <div class="todo"><span class="text">Started</span><span class="count">0</span></div>
+                <div class="highcoynt"><span class="text-priotity">High Priority</span> <span class="count">0</span></div>
+            </div>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+        <div class="To-do bottom">
+            <div class="todo"><span class="text">Completed</span><span class="count" id="comlited">0</span></div>
+            <div class="highcoynt"><span class="text-priotity">High Priority</span> <span class="count" id="highpriotitycomplited">0</span></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
